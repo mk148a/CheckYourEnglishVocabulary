@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.englishapps.com.checkyourenglishvocabulary">
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Check Your English Vocabulary"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:replace="android:label, android:icon, android:theme">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Soruekrani"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".YourStatistics"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RankList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Rules"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BuyCoin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FreeCoin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UsersDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".compitation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settingss"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".singleplayer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Multiplayer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PlayWithFriend"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".compitation_soruekrani"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CompetitionRules"
+            android:screenOrientation="portrait" />
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9551427770579242~1967488613"/>
+
+    </application>
+    <meta-data
+    android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+    android:value="true"/>
+
+</manifest>

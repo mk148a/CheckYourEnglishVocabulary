@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="lay1" type="id"/>
+    <item name="l1btn" type="id"/>
+    <item name="l2btn" type="id"/>
+    <item name="l3btn" type="id"/>
+    <item name="l4btn" type="id"/>
+    <item name="l5btn" type="id"/>
+    <item name="l6btn" type="id"/>
+    <item name="l7btn" type="id"/>
+    <item name="l8btn" type="id"/>
+    <item name="l9btn" type="id"/>
+    <item name="t1btn" type="id"/>
+    <item name="t2btn" type="id"/>
+    <item name="t3btn" type="id"/>
+    <item name="usernameinputtxt" type="id"/>
+    <item name="passwordinputtxt" type="id"/>
+    <item name="mailinputtxt" type="id"/>
+    <item name="registerbtn" type="id"/>
+    <item name="ResetChosenbtn" type="id"/>
+    <item name="ResetAllbtn" type="id"/>
+    <item name="loginusernameinputtxt" type="id"/>
+    <item name="loginpasswordinputtxt" type="id"/>
+    <item name="loginbtn" type="id"/>
+    <item name="skipbutton" type="id"/>
+    <item name="jokerbutton" type="id"/>
+    <item name="reportbutton" type="id"/>
+    <item name="backbutton" type="id"/>
+    <item name="nextbutton" type="id"/>
+    <item name="compitationsoruekrani_skipbutton" type="id"/>
+    <item name="compitationsoruekrani_jokerbutton" type="id"/>
+    <item name="compitationsoruekrani_reportbutton" type="id"/>
+    <item name="compitationsoruekrani_backbutton" type="id"/>
+    <item name="compitationsoruekrani_nextbutton" type="id"/>
+    <item name="startbutton" type="id"/>
+    <item name="playwithfriend_startbutton" type="id"/>
+    <item name="joinbutton" type="id"/>
+    <item name="compitation_startbutton" type="id"/>
+    <item name="freecoinbutton" type="id" />
+</resources>
