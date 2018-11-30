@@ -24,6 +24,7 @@
     <string name="compitationbutton">competitionbutton_tr</string>
     <string name="playagainstanuserbutton">playagainstanuserbutton_tr</string>
     <string name="settingsbutton">settingsbutton_tr</string>
+    <string name="privacybutton">privacybutton_tr</string>
     <string name="loginbutton">loginbutton_tr</string>
     <string name="registerbutton">registerbutton_tr</string>
     <string name="buycoinbutton1">buycoinbutton1_tr</string>

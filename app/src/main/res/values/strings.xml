@@ -23,6 +23,7 @@
     <string name="compitationbutton">competitionbutton</string>
     <string name="playagainstanuserbutton">playagainstanuserbutton</string>
     <string name="settingsbutton">settingsbutton</string>
+    <string name="privacybutton">privacybutton</string>
     <string name="loginbutton">loginbutton</string>
     <string name="registerbutton">registerbutton</string>
     <string name="buycoinbutton1">buycoinbutton1</string>
@@ -168,7 +169,6 @@
     <string name="_1000_coins_15_dollars">1000 coins : 15 dollars</string>
     <string name="apikey">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhlvuhVxYRtNNv+hX1DbNe0KUEuLXJHr4orV3I5fiG4n1xbAB+biWP/TRzbZJhKD39fJICU968gJCZLV+nTvLo/UaLjKn32I0kf/hyM6fG9CBGM9Ycn3MrrsCs4946SjOB2J8u4lh7hdEd8XaRi3TKCZ8Vgcq3JtvkwP/kQeGnetUUz39m7GQ4NmtPWphGLAwiUbADDZzNtz7q8is3bMQC0W94DQaL3ixBDOTKxVjZmx+zMEYrKLjDaeLuhmPDurpIyUKl9+kHGZzFRa5R50h5c8BQGVJUGQhm7DLHw7nnTuGioDYZj/ZxgnMY6QC6L6DQgiXkVROCA6ylx2RWM7g9wIDAQAB</string>
     <string name="freecpin_earn_msg">Congratulations! You earned 1 free coin.</string>
-
     <string name="savebutton">savebutton</string>
     <string name="langulage">Language</string>
     <string name="Questions">Questions</string>
@@ -200,5 +200,6 @@
     <string name="Participants">Participants:</string>
     <string name="awards">Awards</string>
     <string name="winners">Winners</string>
+
 
 </resources>

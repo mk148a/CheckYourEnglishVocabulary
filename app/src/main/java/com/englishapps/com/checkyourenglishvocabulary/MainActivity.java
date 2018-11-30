@@ -8,10 +8,10 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -22,9 +22,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.ads.MobileAds;
 
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -516,7 +516,8 @@ public class MainActivity extends AppCompatActivity {
         int k = 0;
 
         String[] value = null;
-        for (int i = 0; i < 5; i++) {
+        //button dinamik oluşması için button sayısının belirtildiği yer
+        for (int i = 0; i < 6; i++) {
             TableRow tableRow = new TableRow(this);
             tableRow.setGravity(Gravity.NO_GRAVITY);
             int marg1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
@@ -536,7 +537,9 @@ public class MainActivity extends AppCompatActivity {
                 TableRow.LayoutParams tb1 = new TableRow.LayoutParams(genislik, yukseklik);
 
                 tb1.setMargins(soldan, bosluk, 0, 0);
+                //Buttonlar dinamik oluşuyor(kod ile), bkz. satır:519
                 final Button button = new Button(this);
+
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -583,12 +586,16 @@ public class MainActivity extends AppCompatActivity {
                                 a.setClass(MainActivity.this, settingss.class);
                                 startActivity(a);
                                 break;
+                            case "5":
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://hdtvapp.tk/checkyourenglishvocabulary/privacy_policy.html"));
+                                startActivity(browserIntent);
+                                break;
                         }
 
                     }
                 });
 
-
+                //Buttonların dinamik oluştuğu yer
                 switch (k) {
                     case 0:
                         button.setBackgroundResource(resimara(getString(R.string.singleplayerbutton)));
@@ -608,6 +615,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 4:
                         button.setBackgroundResource(resimara(getString(R.string.settingsbutton)));
+                        button.setTag(Integer.toString(k));
+                        break;
+                    case 5:
+                        button.setBackgroundResource(resimara(getString(R.string.privacybutton)));
                         button.setTag(Integer.toString(k));
                         break;
                 }
