@@ -2,11 +2,11 @@ package com.englishapps.com.checkyourenglishvocabulary;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -73,32 +73,32 @@ public class Register extends AppCompatActivity {
         yenidata.sifre = password;
         yenidata.mail = mail;
         yenidata.gold = gold;
+        yenidata.task1 = task1;
+        yenidata.task2 = task2;
+        yenidata.task3 = task3;
+        yenidata.skor = toplamskor;
+
         Gson gson = new Gson();
         String data = gson.toJson(yenidata);
 
         String sonuc = null;
         try {
-            sonuc = new gonder().execute("http://hdtvapp.tk/checkyourenglishvocabulary/v1/kullaniciService1.svc/register", data).get().replace("\"", "");
+            String ss = new gonder().execute("http://hdtvapp.tk/checkyourenglishvocabulary/v1/kullaniciService1.svc/register", data).get();
+            Log.i("registr", ss);
+            sonuc = ss.replace("\"", "");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-        if (sonuc == "Your registration has been added successfully, You are redirected to the MainPage.") {
-            yenidata.task1 = task1;
-            yenidata.task2 = task2;
-            yenidata.task3 = task3;
-            yenidata.skor = toplamskor;
-            gson = new Gson();
-            data = gson.toJson(yenidata);
-            try {
-                new gonder().execute("http://hdtvapp.tk/checkyourenglishvocabulary/v1/kullaniciService1.svc/setskor", data).get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
+        if (sonuc.contains("redirected")) {
+            Intent i = new Intent();
+            i.setClass(Register.this, MainActivity.class);
+            startActivity(i);
+
+        } else {
+            Log.i("registr_error", sonuc);
         }
         if (sonuc != "") {
             return sonuc;
@@ -204,13 +204,15 @@ public class Register extends AppCompatActivity {
                                     MainActivity.temizle();
                                     String cozulensoruindexleri = gson.toJson(Soruekrani.cozulensoruindexleri);
                                     try {
+                                        if (task1 == null || task1 == "") {
+                                            MainActivity.temizle();
+                                            task1 = gson.toJson(MainActivity.task1);
+                                            task2 = gson.toJson(MainActivity.task2);
+                                            task3 = gson.toJson(MainActivity.task3);
+                                        }
                                         String sonuc = register(username, password, mail, cozulensoruindexleri, cpuId(), 30, task1, task2, task3, toplamskor);
                                         Toast.makeText(getApplicationContext(), sonuc, Toast.LENGTH_LONG).show();
-                                        if (sonuc == getString(R.string.reg5)) {
-                                            Intent i = new Intent();
-                                            i.setClass(Register.this, MainActivity.class);
-                                            startActivity(i);
-                                        }
+
                                     } catch (ClassNotFoundException e) {
                                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                                         e.printStackTrace();

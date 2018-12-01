@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 Type type = new TypeToken<List<String>>() {
                 }.getType();
                 String gelen = new indir().execute(("http://hdtvapp.tk/checkyourenglishvocabulary/v1/kullaniciService1.svc/gettask1/" + cpuId())).get();
-                //beyin amcıkladığı yer
+                //hata verilen yer
                 List<String> task = gson.fromJson(gelen, type);
 
                 if (task.get(0) == "hata") {
