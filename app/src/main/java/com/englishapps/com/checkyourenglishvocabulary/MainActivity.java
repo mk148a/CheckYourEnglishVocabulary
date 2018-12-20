@@ -1,6 +1,5 @@
 package com.englishapps.com.checkyourenglishvocabulary;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -250,41 +249,41 @@ public class MainActivity extends AppCompatActivity {
         giriskontrol();
 
         TextView goldtxt = (TextView) findViewById(R.id.goldtxt);
-        EditText usertxt = (EditText) findViewById(R.id.usernametxt);
-        ul = (LinearLayout) findViewById(R.id.ustlinear);
-        orta = (LinearLayout) findViewById(R.id.main_orta);
-        LinearLayout altlinear = (LinearLayout) findViewById(R.id.main_altlinear);
+        TextView usertxt = (TextView) findViewById(R.id.usernametxt);
+//        ul = (LinearLayout) findViewById(R.id.ustlinear);
+//        orta = (LinearLayout) findViewById(R.id.main_orta);
+//        LinearLayout altlinear = (LinearLayout) findViewById(R.id.main_altlinear);
 
         try {
 
 
-            LinearLayout anasayfa = (LinearLayout) findViewById(R.id.anasayfa);
-            orta.addView(ortaview());
-            altlinear.addView(altview());
+//            LinearLayout anasayfa = (LinearLayout) findViewById(R.id.anasayfa);
+//            orta.addView(ortaview());
+//            altlinear.addView(altview());
 
             if (giriscalisti == true) {
-                ul.addView(ustviewuye());
+//                ul.addView(ustviewuye());
 
                 // yl.addView(yarimaayarview());
-                goldtxt.setEnabled(true);
-                goldtxt.setVisibility(View.VISIBLE);
-                goldtxt.setText(Integer.toString(gold));
-                usertxt.setEnabled(true);
-                usertxt.setVisibility(View.VISIBLE);
-                usertxt.setText(kullaniciadi);
-                anasayfa.setBackgroundDrawable(getResources().getDrawable(resimara("mainpagebackgrounduye")));
+//                goldtxt.setEnabled(true);
+//                goldtxt.setVisibility(View.VISIBLE);
+//                goldtxt.setText(Integer.toString(gold));
+//                usertxt.setEnabled(true);
+//                usertxt.setVisibility(View.VISIBLE);
+//                usertxt.setText(kullaniciadi);
+//                anasayfa.setBackgroundDrawable(getResources().getDrawable(resimara("mainpagebackgrounduye")));
 
             } else {
-                ul.addView(ustview());
-                goldtxt.setEnabled(false);
-                goldtxt.setVisibility(View.INVISIBLE);
-                usertxt.setEnabled(false);
-                usertxt.setVisibility(View.INVISIBLE);
-                anasayfa.setBackgroundDrawable(getResources().getDrawable(resimara(getString(R.string.mainpageuyesiz))));
+//                ul.addView(ustview());
+//                goldtxt.setEnabled(false);
+//                goldtxt.setVisibility(View.INVISIBLE);
+//                usertxt.setEnabled(false);
+//                usertxt.setVisibility(View.INVISIBLE);
+//                anasayfa.setBackgroundDrawable(getResources().getDrawable(resimara(getString(R.string.mainpageuyesiz))));
             }
 
 
-        } catch (IllegalAccessException e1) {
+        } catch (Exception e1) {
             e1.printStackTrace();
         }
     }
@@ -397,337 +396,337 @@ public class MainActivity extends AppCompatActivity {
         return intent;
     }
 
-    public View ustviewuye() throws IllegalAccessException {
-        ArrayList<String> adad = new ArrayList<String>();
-        adad.add("BuyCoin");
-        adad.add("FreeCoin");
-        adad.add("Logout");
-        int marg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
-        int marg2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        pr.setMargins(marg2, (int) (marg * 0.50), 0, 0);
-        linearLayout.setLayoutParams(pr);
-
-        TableLayout tableLayout = new TableLayout(this);
-        tableLayout.setStretchAllColumns(false);
-        TableLayout.LayoutParams tb = (new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
-
-        tableLayout.setLayoutParams(tb);
-        tableLayout.setWeightSum(3);
-        int k = 0;
-        String[] value = null;
-        for (int i = 0; i < 1; i++) {
-            TableRow tableRow = new TableRow(this);
-            tableRow.setGravity(Gravity.CENTER_VERTICAL);
-            int marg1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
-            TableLayout.LayoutParams prr = new TableLayout.LayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
-
-            tableRow.setLayoutParams(prr);
-
-            for (int j = 0; j < 3; j++) {
-                int bosluk = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, getResources().getDisplayMetrics());
-                int genislik = (int) ((getResources().getDisplayMetrics().widthPixels / 3.5));
-                double oran = (float) 43 / (float) 110;
-                int yukseklik = (int) (oran * genislik);
-                //110x43 level buttonları
-                TableRow.LayoutParams tb1 = new TableRow.LayoutParams(genislik, yukseklik);
-                tb1.setMargins((int) (bosluk * 1.1), bosluk, bosluk, bosluk);
-
-                Button button = new Button(this);
-                //butonadı
-                button.setTag(adad.get(k));
-                button.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        //kanal adı ve linkini tagden alıyor
-                        String gelentag = v.getTag().toString();
-
-                        Intent i = new Intent();
-
-
-                        switch ((v.getTag().toString())) {
-                            case "BuyCoin":
-                                i.setClass(MainActivity.this, BuyCoin.class);
-                                startActivity(i);
-                                break;
-                            case "FreeCoin":
-                                // final AdConfig overrideConfig = new AdConfig();
-                                //  overrideConfig.setIncentivized(true);
-                                // overrideConfig.setSoundEnabled(true);
-
-                                // vunglePub.playAd(overrideConfig);
-
-                                //Reklam olayına çözüm bul
-                             /*   if (UnityAds.isReady()) {
-                                    UnityAds.show(MainActivity.this);
-                                }*/
-                                break;
-                            case "Logout":
-
-                                giriscalisti = false;
-                                logout = true;
-                                i.setClass(MainActivity.this, MainActivity.class);
-                                startActivity(i);
-                                break;
-
-                        }
-
-
-                    }
-                });
-
-                if (k == 0) {
-                    button.setBackgroundResource(resimara(getString(R.string.buycoinbutton1)));
-                } else if (k == 1) {
-                    button.setBackgroundResource(resimara(getString(R.string.freecoinbutton1)));
-                    button.setId(R.id.freecoinbutton);
-                } else if (k == 2) {
-                    button.setBackgroundResource(resimara(getString(R.string.logoutbutton)));
-                }
-
-
-                tableRow.addView(button, tb1);
-                k = k + 1;
-            }
-
-            tableLayout.addView(tableRow);
-        }
-
-
-        linearLayout.addView(tableLayout);
-
-        return linearLayout;
-    }
-    public View ortaview() throws IllegalAccessException {
-        int marg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45, getResources().getDisplayMetrics());
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        pr.setMargins(dphesapla(5), marg, 0, 0);
-        linearLayout.setLayoutParams(pr);
-
-        TableLayout tableLayout = new TableLayout(this);
-        tableLayout.setStretchAllColumns(false);
-        TableLayout.LayoutParams tb = (new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
-
-        tableLayout.setLayoutParams(tb);
-        tableLayout.setWeightSum(3);
-        int k = 0;
-
-        String[] value = null;
-        //button dinamik oluşması için button sayısının belirtildiği yer
-        for (int i = 0; i < 6; i++) {
-            TableRow tableRow = new TableRow(this);
-            tableRow.setGravity(Gravity.NO_GRAVITY);
-            int marg1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
-            TableLayout.LayoutParams prr = new TableLayout.LayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
-
-
-            tableRow.setLayoutParams(prr);
-
-            for (int j = 0; j < 1; j++) {
-                int bosluk = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
-                int genislik = (int) ((getResources().getDisplayMetrics().widthPixels / 2.5));
-                int soldan = (getResources().getDisplayMetrics().widthPixels - genislik) / 2;
-                double oran = (float) 50 / (float) 180;
-                int yukseklik = (int) (oran * genislik);
-
-                //180x50 mainpage buttonları
-                TableRow.LayoutParams tb1 = new TableRow.LayoutParams(genislik, yukseklik);
-
-                tb1.setMargins(soldan, bosluk, 0, 0);
-                //Buttonlar dinamik oluşuyor(kod ile), bkz. satır:519
-                final Button button = new Button(this);
-
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent a = new Intent();
-                        String gelentag = v.getTag().toString();
-                        switch (gelentag) {
-                            case "0":
-                                a.setClass(MainActivity.this, singleplayer.class);
-                                startActivity(a);
-
-                                break;
-                            case "1":
-                                if (MainActivity.giriscalisti == true) {
-                                    // a.setClass(MainActivity.this, Multiplayer.class);
-                                    //startActivity(a);
-                                    Toast.makeText(getApplicationContext(), R.string.Coming_Soon, Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), R.string.mainyazi1, Toast.LENGTH_LONG).show();
-                                }
-
-                                break;
-                            case "2":
-
-                                if (MainActivity.giriscalisti == true) {
-                                    //a.setClass(MainActivity.this, PlayWithFriend.class);
-                                    // startActivity(a);
-                                    Toast.makeText(getApplicationContext(), R.string.Coming_Soon, Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), R.string.mainyazi1, Toast.LENGTH_LONG).show();
-                                }
-                                break;
-                            case "3":
-
-                                if (MainActivity.giriscalisti == true) {
-                                    Toast.makeText(getApplicationContext(), R.string.Coming_Soon, Toast.LENGTH_LONG).show();
-                                   // a.setClass(MainActivity.this, compitation.class);
-                                  //  startActivity(a);
-                                } else {
-                                    Toast.makeText(getApplicationContext(), R.string.mainyazi1, Toast.LENGTH_LONG).show();
-                                }
-
-                                break;
-                            case "4":
-                                a.setClass(MainActivity.this, settingss.class);
-                                startActivity(a);
-                                break;
-                            case "5":
-                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://hdtvapp.tk/checkyourenglishvocabulary/privacy_policy.html"));
-                                startActivity(browserIntent);
-                                break;
-                        }
-
-                    }
-                });
-
-                //Buttonların dinamik oluştuğu yer
-                switch (k) {
-                    case 0:
-                        button.setBackgroundResource(resimara(getString(R.string.singleplayerbutton)));
-                        button.setTag(Integer.toString(k));
-                        break;
-                    case 1:
-                        button.setBackgroundResource(resimara(getString(R.string.multiplayerbutton)));
-                        button.setTag(Integer.toString(k));
-                        break;
-                    case 2:
-                        button.setBackgroundResource(resimara(getString(R.string.playwithfriendbutton)));
-                        button.setTag(Integer.toString(k));
-                        break;
-                    case 3:
-                        button.setBackgroundResource(resimara(getString(R.string.competitionbutton)));
-                        button.setTag(Integer.toString(k));
-                        break;
-                    case 4:
-                        button.setBackgroundResource(resimara(getString(R.string.settingsbutton)));
-                        button.setTag(Integer.toString(k));
-                        break;
-                    case 5:
-                        button.setBackgroundResource(resimara(getString(R.string.privacybutton)));
-                        button.setTag(Integer.toString(k));
-                        break;
-                }
-
-
-                tableRow.addView(button, tb1);
-                k = k + 1;
-            }
-
-            tableLayout.addView(tableRow);
-        }
-
-
-        linearLayout.addView(tableLayout);
-
-        return linearLayout;
-    }
-
-    public View altview() throws IllegalAccessException {
-        ArrayList<String> adad = new ArrayList<String>();
-        adad.add("Rate");
-        adad.add("Contact");
-        adad.add("About");
-        int marg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
-        int marg2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        pr.setMargins(marg2, 0, 0, 0);
-        linearLayout.setLayoutParams(pr);
-
-        TableLayout tableLayout = new TableLayout(this);
-        tableLayout.setStretchAllColumns(false);
-        TableLayout.LayoutParams tb = (new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
-
-        tableLayout.setLayoutParams(tb);
-        tableLayout.setWeightSum(2);
-        int k = 1;
-        String[] value = null;
-        for (int i = 0; i < 1; i++) {
-            TableRow tableRow = new TableRow(this);
-            tableRow.setGravity(Gravity.NO_GRAVITY);
-            int marg1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
-            TableLayout.LayoutParams prr = new TableLayout.LayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
-
-            tableRow.setLayoutParams(prr);
-
-            for (int j = 0; j < 3; j++) {
-                int bosluk = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, getResources().getDisplayMetrics());
-                int genislik = (int) ((getResources().getDisplayMetrics().widthPixels / 3.5));
-                double oran = (float) 43 / (float) 110;
-                int yukseklik = (int) (oran * genislik);
-                //110x43 level buttonları
-                TableRow.LayoutParams tb1 = new TableRow.LayoutParams(genislik, yukseklik);
-                tb1.setMargins((int) (bosluk * 1.1), bosluk, bosluk, bosluk);
-                Button button = new Button(this);
-                //butonadı
-                button.setTag(adad.get(j));
-                button.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        //kanal adı ve linkini tagden alıyor
-                        String gelentag = v.getTag().toString();
-                        Intent i = new Intent();
-                        switch ((v.getTag().toString())) {
-                            case "Rate":
-                                // i.setClass(MainActivity.this, YourStatistics.class);
-                                // startActivity(i);
-                                try {
-                                    Intent rateIntent = rateIntentForUrl("market://details");
-                                    startActivity(rateIntent);
-                                } catch (ActivityNotFoundException e) {
-                                    Intent rateIntent = rateIntentForUrl("http://play.google.com/store/apps/details");
-                                    startActivity(rateIntent);
-                                }
-
-                                break;
-                            case "Contact":
-                                //
-                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/geniusprogramming/"));
-                                startActivity(browserIntent);
-                                break;
-                            case "About":
-                                //
-                                Intent browserIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/geniusprogramming/"));
-                                startActivity(browserIntent1);
-                                break;
-                        }
-
-                    }
-                });
-                if (j == 0) {
-                    button.setBackgroundResource(resimara(getString(R.string.rateusbutton)));
-                } else if (j == 1) {
-                    button.setBackgroundResource(resimara(getString(R.string.contactusbutton)));
-                } else if (j == 2) {
-                    button.setBackgroundResource(resimara(getString(R.string.aboutbutton)));
-                }
-                tableRow.addView(button, tb1);
-                k = k + 1;
-
-            }
-            tableLayout.addView(tableRow);
-
-
-        }
-        linearLayout.addView(tableLayout);
-        return linearLayout;
-
-    }
+//    public View ustviewuye() throws IllegalAccessException {
+//        ArrayList<String> adad = new ArrayList<String>();
+//        adad.add("BuyCoin");
+//        adad.add("FreeCoin");
+//        adad.add("Logout");
+//        int marg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+//        int marg2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+//        LinearLayout linearLayout = new LinearLayout(this);
+//        linearLayout.setOrientation(LinearLayout.VERTICAL);
+//        LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+//        pr.setMargins(marg2, (int) (marg * 0.50), 0, 0);
+//        linearLayout.setLayoutParams(pr);
+//
+//        TableLayout tableLayout = new TableLayout(this);
+//        tableLayout.setStretchAllColumns(false);
+//        TableLayout.LayoutParams tb = (new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
+//
+//        tableLayout.setLayoutParams(tb);
+//        tableLayout.setWeightSum(3);
+//        int k = 0;
+//        String[] value = null;
+//        for (int i = 0; i < 1; i++) {
+//            TableRow tableRow = new TableRow(this);
+//            tableRow.setGravity(Gravity.CENTER_VERTICAL);
+//            int marg1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+//            TableLayout.LayoutParams prr = new TableLayout.LayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
+//
+//            tableRow.setLayoutParams(prr);
+//
+//            for (int j = 0; j < 3; j++) {
+//                int bosluk = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, getResources().getDisplayMetrics());
+//                int genislik = (int) ((getResources().getDisplayMetrics().widthPixels / 3.5));
+//                double oran = (float) 43 / (float) 110;
+//                int yukseklik = (int) (oran * genislik);
+//                //110x43 level buttonları
+//                TableRow.LayoutParams tb1 = new TableRow.LayoutParams(genislik, yukseklik);
+//                tb1.setMargins((int) (bosluk * 1.1), bosluk, bosluk, bosluk);
+//
+//                Button button = new Button(this);
+//                //butonadı
+//                button.setTag(adad.get(k));
+//                button.setOnClickListener(new View.OnClickListener() {
+//                    public void onClick(View v) {
+//                        //kanal adı ve linkini tagden alıyor
+//                        String gelentag = v.getTag().toString();
+//
+//                        Intent i = new Intent();
+//
+//
+//                        switch ((v.getTag().toString())) {
+//                            case "BuyCoin":
+//                                i.setClass(MainActivity.this, BuyCoin.class);
+//                                startActivity(i);
+//                                break;
+//                            case "FreeCoin":
+//                                // final AdConfig overrideConfig = new AdConfig();
+//                                //  overrideConfig.setIncentivized(true);
+//                                // overrideConfig.setSoundEnabled(true);
+//
+//                                // vunglePub.playAd(overrideConfig);
+//
+//                                //Reklam olayına çözüm bul
+//                             /*   if (UnityAds.isReady()) {
+//                                    UnityAds.show(MainActivity.this);
+//                                }*/
+//                                break;
+//                            case "Logout":
+//
+//                                giriscalisti = false;
+//                                logout = true;
+//                                i.setClass(MainActivity.this, MainActivity.class);
+//                                startActivity(i);
+//                                break;
+//
+//                        }
+//
+//
+//                    }
+//                });
+//
+//                if (k == 0) {
+//                    button.setBackgroundResource(resimara(getString(R.string.buycoinbutton1)));
+//                } else if (k == 1) {
+//                    button.setBackgroundResource(resimara(getString(R.string.freecoinbutton1)));
+//                    button.setId(R.id.freecoinbutton);
+//                } else if (k == 2) {
+//                    button.setBackgroundResource(resimara(getString(R.string.logoutbutton)));
+//                }
+//
+//
+//                tableRow.addView(button, tb1);
+//                k = k + 1;
+//            }
+//
+//            tableLayout.addView(tableRow);
+//        }
+//
+//
+//        linearLayout.addView(tableLayout);
+//
+//        return linearLayout;
+//    }
+//    public View ortaview() throws IllegalAccessException {
+//        int marg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45, getResources().getDisplayMetrics());
+//        LinearLayout linearLayout = new LinearLayout(this);
+//        linearLayout.setOrientation(LinearLayout.VERTICAL);
+//        LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+//        pr.setMargins(dphesapla(5), marg, 0, 0);
+//        linearLayout.setLayoutParams(pr);
+//
+//        TableLayout tableLayout = new TableLayout(this);
+//        tableLayout.setStretchAllColumns(false);
+//        TableLayout.LayoutParams tb = (new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
+//
+//        tableLayout.setLayoutParams(tb);
+//        tableLayout.setWeightSum(3);
+//        int k = 0;
+//
+//        String[] value = null;
+//        //button dinamik oluşması için button sayısının belirtildiği yer
+//        for (int i = 0; i < 6; i++) {
+//            TableRow tableRow = new TableRow(this);
+//            tableRow.setGravity(Gravity.NO_GRAVITY);
+//            int marg1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+//            TableLayout.LayoutParams prr = new TableLayout.LayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
+//
+//
+//            tableRow.setLayoutParams(prr);
+//
+//            for (int j = 0; j < 1; j++) {
+//                int bosluk = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
+//                int genislik = (int) ((getResources().getDisplayMetrics().widthPixels / 2.5));
+//                int soldan = (getResources().getDisplayMetrics().widthPixels - genislik) / 2;
+//                double oran = (float) 50 / (float) 180;
+//                int yukseklik = (int) (oran * genislik);
+//
+//                //180x50 mainpage buttonları
+//                TableRow.LayoutParams tb1 = new TableRow.LayoutParams(genislik, yukseklik);
+//
+//                tb1.setMargins(soldan, bosluk, 0, 0);
+//                //Buttonlar dinamik oluşuyor(kod ile), bkz. satır:519
+//                final Button button = new Button(this);
+//
+//                button.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent a = new Intent();
+//                        String gelentag = v.getTag().toString();
+//                        switch (gelentag) {
+//                            case "0":
+//                                a.setClass(MainActivity.this, singleplayer.class);
+//                                startActivity(a);
+//
+//                                break;
+//                            case "1":
+//                                if (MainActivity.giriscalisti == true) {
+//                                    // a.setClass(MainActivity.this, Multiplayer.class);
+//                                    //startActivity(a);
+//                                    Toast.makeText(getApplicationContext(), R.string.Coming_Soon, Toast.LENGTH_LONG).show();
+//                                } else {
+//                                    Toast.makeText(getApplicationContext(), R.string.mainyazi1, Toast.LENGTH_LONG).show();
+//                                }
+//
+//                                break;
+//                            case "2":
+//
+//                                if (MainActivity.giriscalisti == true) {
+//                                    //a.setClass(MainActivity.this, PlayWithFriend.class);
+//                                    // startActivity(a);
+//                                    Toast.makeText(getApplicationContext(), R.string.Coming_Soon, Toast.LENGTH_LONG).show();
+//                                } else {
+//                                    Toast.makeText(getApplicationContext(), R.string.mainyazi1, Toast.LENGTH_LONG).show();
+//                                }
+//                                break;
+//                            case "3":
+//
+//                                if (MainActivity.giriscalisti == true) {
+//                                    Toast.makeText(getApplicationContext(), R.string.Coming_Soon, Toast.LENGTH_LONG).show();
+//                                   // a.setClass(MainActivity.this, compitation.class);
+//                                  //  startActivity(a);
+//                                } else {
+//                                    Toast.makeText(getApplicationContext(), R.string.mainyazi1, Toast.LENGTH_LONG).show();
+//                                }
+//
+//                                break;
+//                            case "4":
+//                                a.setClass(MainActivity.this, settingss.class);
+//                                startActivity(a);
+//                                break;
+//                            case "5":
+//                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://hdtvapp.tk/checkyourenglishvocabulary/privacy_policy.html"));
+//                                startActivity(browserIntent);
+//                                break;
+//                        }
+//
+//                    }
+//                });
+//
+//                //Buttonların dinamik oluştuğu yer
+//                switch (k) {
+//                    case 0:
+//                        button.setBackgroundResource(resimara(getString(R.string.singleplayerbutton)));
+//                        button.setTag(Integer.toString(k));
+//                        break;
+//                    case 1:
+//                        button.setBackgroundResource(resimara(getString(R.string.multiplayerbutton)));
+//                        button.setTag(Integer.toString(k));
+//                        break;
+//                    case 2:
+//                        button.setBackgroundResource(resimara(getString(R.string.playwithfriendbutton)));
+//                        button.setTag(Integer.toString(k));
+//                        break;
+//                    case 3:
+//                        button.setBackgroundResource(resimara(getString(R.string.competitionbutton)));
+//                        button.setTag(Integer.toString(k));
+//                        break;
+//                    case 4:
+//                        button.setBackgroundResource(resimara(getString(R.string.settingsbutton)));
+//                        button.setTag(Integer.toString(k));
+//                        break;
+//                    case 5:
+//                        button.setBackgroundResource(resimara(getString(R.string.privacybutton)));
+//                        button.setTag(Integer.toString(k));
+//                        break;
+//                }
+//
+//
+//                tableRow.addView(button, tb1);
+//                k = k + 1;
+//            }
+//
+//            tableLayout.addView(tableRow);
+//        }
+//
+//
+//        linearLayout.addView(tableLayout);
+//
+//        return linearLayout;
+//    }
+//
+//    public View altview() throws IllegalAccessException {
+//        ArrayList<String> adad = new ArrayList<String>();
+//        adad.add("Rate");
+//        adad.add("Contact");
+//        adad.add("About");
+//        int marg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+//        int marg2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+//        LinearLayout linearLayout = new LinearLayout(this);
+//        linearLayout.setOrientation(LinearLayout.VERTICAL);
+//        LinearLayout.LayoutParams pr = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+//        pr.setMargins(marg2, 0, 0, 0);
+//        linearLayout.setLayoutParams(pr);
+//
+//        TableLayout tableLayout = new TableLayout(this);
+//        tableLayout.setStretchAllColumns(false);
+//        TableLayout.LayoutParams tb = (new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
+//
+//        tableLayout.setLayoutParams(tb);
+//        tableLayout.setWeightSum(2);
+//        int k = 1;
+//        String[] value = null;
+//        for (int i = 0; i < 1; i++) {
+//            TableRow tableRow = new TableRow(this);
+//            tableRow.setGravity(Gravity.NO_GRAVITY);
+//            int marg1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
+//            TableLayout.LayoutParams prr = new TableLayout.LayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
+//
+//            tableRow.setLayoutParams(prr);
+//
+//            for (int j = 0; j < 3; j++) {
+//                int bosluk = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, getResources().getDisplayMetrics());
+//                int genislik = (int) ((getResources().getDisplayMetrics().widthPixels / 3.5));
+//                double oran = (float) 43 / (float) 110;
+//                int yukseklik = (int) (oran * genislik);
+//                //110x43 level buttonları
+//                TableRow.LayoutParams tb1 = new TableRow.LayoutParams(genislik, yukseklik);
+//                tb1.setMargins((int) (bosluk * 1.1), bosluk, bosluk, bosluk);
+//                Button button = new Button(this);
+//                //butonadı
+//                button.setTag(adad.get(j));
+//                button.setOnClickListener(new View.OnClickListener() {
+//                    public void onClick(View v) {
+//                        //kanal adı ve linkini tagden alıyor
+//                        String gelentag = v.getTag().toString();
+//                        Intent i = new Intent();
+//                        switch ((v.getTag().toString())) {
+//                            case "Rate":
+//                                // i.setClass(MainActivity.this, YourStatistics.class);
+//                                // startActivity(i);
+//                                try {
+//                                    Intent rateIntent = rateIntentForUrl("market://details");
+//                                    startActivity(rateIntent);
+//                                } catch (ActivityNotFoundException e) {
+//                                    Intent rateIntent = rateIntentForUrl("http://play.google.com/store/apps/details");
+//                                    startActivity(rateIntent);
+//                                }
+//
+//                                break;
+//                            case "Contact":
+//                                //
+//                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/geniusprogramming/"));
+//                                startActivity(browserIntent);
+//                                break;
+//                            case "About":
+//                                //
+//                                Intent browserIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/geniusprogramming/"));
+//                                startActivity(browserIntent1);
+//                                break;
+//                        }
+//
+//                    }
+//                });
+//                if (j == 0) {
+//                    button.setBackgroundResource(resimara(getString(R.string.rateusbutton)));
+//                } else if (j == 1) {
+//                    button.setBackgroundResource(resimara(getString(R.string.contactusbutton)));
+//                } else if (j == 2) {
+//                    button.setBackgroundResource(resimara(getString(R.string.aboutbutton)));
+//                }
+//                tableRow.addView(button, tb1);
+//                k = k + 1;
+//
+//            }
+//            tableLayout.addView(tableRow);
+//
+//
+//        }
+//        linearLayout.addView(tableLayout);
+//        return linearLayout;
+//
+//    }
 
     @Override
     public void onBackPressed() {
