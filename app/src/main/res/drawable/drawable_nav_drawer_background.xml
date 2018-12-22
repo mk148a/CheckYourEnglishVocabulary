@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:color="@color/color_nnav_drawer_background_darkest" android:width="2dp"  ></stroke>
+    <stroke android:color="@color/color_nnav_drawer_background_darkest" android:width="4dp"  ></stroke>
+    <gradient android:startColor="@color/color_nnav_drawer_background_light"  android:type="radial" android:gradientRadius="350dp" android:endColor="@color/color_nnav_drawer_background_dark"></gradient>
+
+</shape>

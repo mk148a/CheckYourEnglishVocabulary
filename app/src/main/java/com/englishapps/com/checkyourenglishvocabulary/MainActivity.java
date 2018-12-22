@@ -9,9 +9,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -29,7 +33,10 @@ import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
+    /**
+     * Ana ekrandaki detay kısımlara erişimin olduğu menüyü ifade eder.
+     */
+    private DrawerLayout mDrawerLayout;
 
     public static boolean giriscalisti = false;
     public static boolean logout = false;
@@ -219,6 +226,22 @@ public class MainActivity extends AppCompatActivity {
         AppRater.app_launched(MainActivity.this);
         MobileAds.initialize(this,"ca-app-pub-9551427770579242~1967488613");
 
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                // set item as selected to persist highlight
+                menuItem.setChecked(true);
+                // close drawer when item is tapped
+                mDrawerLayout.closeDrawers();
+
+                // Add code here to update the UI based on the item selected
+                // For example, swap UI fragments here
+
+                return true;
+            }
+        });
         ayarlariyukle();
         if (ingilizcedil == true) {
             Locale locale = new Locale("en");
