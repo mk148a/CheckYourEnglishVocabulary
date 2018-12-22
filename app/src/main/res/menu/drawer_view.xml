@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_get_free_coin"
+        android:title="@string/str_nav_get_free_coin" />
+    <item
+        android:id="@+id/nav_buy_coin"
+        android:title="@string/str_nav_buy_coin" />
+    <item
+        android:id="@+id/nav_privacy_policy"
+        android:title="@string/str_nav_privacy_policy" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/str_nav_settings" />
+    <item
+        android:id="@+id/nav_about"
+        android:title="@string/str_nav_about" />
+</group>
+</menu>

@@ -25,6 +25,18 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="nav_drawer_carter">
+        <item name="android:fontFamily">@font/carter_one</item>
+        <item name="android:textColor">#feba25</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:shadowColor">#3a230a</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">10</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="userinfo_textstyle">
         <item name="android:fontFamily">@font/carter_one</item>
         <item name="android:textColor">#FFFF</item>
