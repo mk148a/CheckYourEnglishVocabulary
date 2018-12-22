@@ -6,4 +6,13 @@
     <color name="kahve">#8a201b</color>
     <color name="ranklistkahve">#8b937373</color>
     <color name="ranklistacikkahve">#64937373</color>
+
+
+    <color name="color_nav_drawer_background_light" >#f8e8b0</color>
+    <color name="color_nav_drawer_background_dark" >#e6c783</color>
+    <color name="color_nav_drawer_background_darkest" >#56d5a770</color>
+
+    <color name="color_nnav_drawer_background_light" >#204975</color>
+    <color name="color_nnav_drawer_background_dark" >#071d2a</color>
+    <color name="color_nnav_drawer_background_darkest" >#56d5a770</color>
 </resources>

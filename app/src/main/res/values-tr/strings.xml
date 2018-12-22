@@ -201,4 +201,12 @@
     <string name="Participants">Katılımcılar:</string>
     <string name="awards">Ödüller</string>
     <string name="winners">Kazananlar</string>
+
+
+    // navigation drawer
+    <string name="str_nav_get_free_coin">Ücretsiz Jeton Kazan</string>
+    <string name="str_nav_buy_coin">Jeton Al</string>
+    <string name="str_nav_privacy_policy">Gizlilik Politikası</string>
+    <string name="str_nav_settings">Ayarlar</string>
+    <string name="str_nav_about">Hakkında</string>
 </resources>
